@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="capturarPantallaQt" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="capturarPantallaQt_D" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="./screenShot.png png si" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="/usr/share/qt4/mkspecs/linux-g++" />
+					<Add directory="/usr/include/qt4/QtCore" />
+					<Add directory="/usr/include/qt4/QtGui" />
+					<Add directory="/usr/include/qt4" />
+				</Compiler>
+				<Linker>
+					<Add option="-lpthread" />
+					<Add option="-lQt3Support" />
+					<Add option="-lQtCLucene" />
+					<Add option="-lQtCore" />
+					<Add option="-lQtDBus" />
+					<Add option="-lQtDeclarative" />
+					<Add option="-lQtDesigner" />
+					<Add option="-lQtDesignerComponents" />
+					<Add option="-lQtGui" />
+					<Add option="-lQtHelp" />
+					<Add option="-lQtNetwork" />
+					<Add option="-lQtOpenGL" />
+					<Add option="-lQtScript" />
+					<Add option="-lQtScriptTools" />
+					<Add option="-lQtSql" />
+					<Add option="-lQtSvg" />
+					<Add option="-lQtTest" />
+					<Add option="-lQtWebKit" />
+					<Add option="-lQtXml" />
+					<Add option="-lQtXmlPatterns" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="capturarPantallaQt_R" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="/usr/include/qt4/QtCore" />
+					<Add directory="/usr/include/qt4/QtGui" />
+					<Add directory="/usr/include/qt4" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-lQtCore" />
+					<Add option="-lQtGui" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<envvars />
+			<code_completion />
+			<lib_finder disable_auto="1" />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

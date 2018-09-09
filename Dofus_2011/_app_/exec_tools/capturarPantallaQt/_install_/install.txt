@@ -1,0 +1,5 @@
+./capturarPantallaQt ../screenShot.png png 100 si
+
+./capturarPantallaQt ../screenShot-r50.png png 50 no 100 200 800 400
+
+#######################################################################

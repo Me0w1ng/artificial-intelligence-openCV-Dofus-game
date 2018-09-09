@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1308111990 source:/home/israel/misObras/dev/misApp/dofus/_app_/exec_tools/capturarPantalla/main.cpp
+	<iostream>
+	<fstream>
+	<cstdlib>
+	<cstdio>
+	<unistd.h>
+	<X11/StringDefs.h>
+	<X11/Intrinsic.h>
+	<X11/Shell.h>
+	<pngwriter.h>
+	<freetype/config/ftheader.h>
+	"capturarPantalla.h"
+
+1308094365 source:/home/israel/misObras/dev/misApp/dofus/_app_/exec_tools/capturarPantalla/XImage2OpenCVImage.cpp
+	"XImage2OpenCVImage.h"
+
+1308094349 /home/israel/misObras/dev/misApp/dofus/_app_/exec_tools/capturarPantalla/XImage2OpenCVImage.h
+	<X11/Xutil.h>
+
+1308096304 source:/home/israel/misObras/dev/misApp/dofus/_app_/exec_tools/capturarPantalla/capturarPantalla.cpp
+	"capturarPantalla.h"
+
+1308105095 /home/israel/misObras/dev/misApp/dofus/_app_/exec_tools/capturarPantalla/capturarPantalla.h
+	<X11/Xlib.h>
+
+1300785272 /usr/include/freetype2/freetype/config/ftheader.h
+

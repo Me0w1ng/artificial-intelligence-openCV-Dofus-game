@@ -1,0 +1,26 @@
+gcc `pkg-config opencv --cflags --libs` -o capturarPantalla *.cpp
+gcc `pkg-config x11 --cflags --libs` -o capturarPantalla *.cpp
+
+
+
+
+
+`pkg-config x11 --cflags --libs`
+`pkg-config freetype2 --cflags --libs`
+
+`pkg-config x11 freetype2 --cflags --libs`
+
+
+
+
+
+gcc -g -v -Wall -L/usr/X11R6/lib -lX11 -o capturarPantalla *.cpp
+
+gcc `pkg-config x11 --cflags --libs` -o capturarPantalla main.cpp capturarPantalla.cpp
+gcc `pkg-config x11 freetype --cflags --libs` -o capturarPantalla main.cpp capturarPantalla.cpp
+
+gcc `pkg-config x11 --cflags --libs` `freetype-config --cflags` -I/usr/local/include  -L/usr/local/lib -lpng -lpngwriter -lz -lfreetype -o capturarPantalla main.cpp capturarPantalla.cpp
+
+-lpng
+-lpngwriter
+-lz
