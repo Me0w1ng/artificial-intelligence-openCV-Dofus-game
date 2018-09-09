@@ -1,0 +1,43 @@
+########################################################################
+Donde estan los recursos en este caso el Arbol Fresno
+########################################################################
+
+- Si borro este archivo no aparece el mapa, ni los arboles
+/home/israel/workspace/Dofus/share/content/maps/maps0.d2p
+
+
+- Buscando archivos que contengan la palabra: maps0
+./share/reg/config.xml:173:	<entry key="atouin.path.maps">pak://content/maps/maps0.d2p|</entry>
+./share/reg/share/config.xml:173:	<entry key="atouin.path.maps">pak://content/maps/maps0.d2p|</entry>
+./share/config.xml:173:	<entry key="atouin.path.maps">pak://content/maps/maps0.d2p|</entry>
+
+
+- Para quitar el fondo del mapa usar:
+/home/israel/workspace/Dofus/share/config.xml: Linea 173
+- Comenta la linea:
+<!--entry key="gfx.path.cellElement">pak://content/gfx/world/gfx0.d2p|</entry-->
+
+
+
+
+
+########################################################################
+OpenCV
+########################################################################
+
+# Install OpenCV Linux with Python
+http://miloq.blogspot.mx/2012/12/install-opencv-ubuntu-linux.html
+http://desarrollophpsenior.wordpress.com/2012/09/19/instalar-opencv-2-4-2-en-ubuntu-12-04-lts/
+
+
+# Tutorial
+http://docs.opencv.org/trunk/doc/py_tutorials/py_tutorials.html
+
+
+# Tutorial to detect Tree
+http://docs.opencv.org/trunk/doc/py_tutorials/py_imgproc/py_pyramids/py_pyramids.html
+http://docs.opencv.org/trunk/doc/py_tutorials/py_imgproc/py_template_matching/py_template_matching.html
+http://docs.opencv.org/trunk/doc/py_tutorials/py_imgproc/py_houghcircles/py_houghcircles.html
+http://docs.opencv.org/trunk/doc/py_tutorials/py_feature2d/py_matcher/py_matcher.html
+
+
