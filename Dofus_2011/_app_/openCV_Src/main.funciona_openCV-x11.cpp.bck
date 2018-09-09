@@ -1,0 +1,191 @@
+//============================================================================
+// Name        : main.cpp
+// Author      : Israel Alberto RV
+// Web         : www.RoviSoft.net
+// Version     :
+// Copyright   : Protegido con GPL
+// Description : Programa de inteligencia artificial que automatiza el juego Dofus (www.dofus.com/es). In C++, Ansi-style
+//============================================================================
+
+//#include <iostream>
+//#include <cstdio>
+//#include <cstdlib>
+
+//#include <cv.h>
+#include <highgui.h>
+
+#include "mouseLinux.h"
+#include "XImage2OpenCVImage.h"
+#include "capturarPantalla.h"
+//#include "funcionesOpenCV.h"
+
+using namespace std;
+using namespace cv;
+
+void mouseHandler(int event, int x, int y, int flags, void *param) {
+	switch (event) {
+		case CV_EVENT_LBUTTONDOWN:
+			printf("CV_EVENT_LBUTTONDOWN || event: %d || x: %d || y: %d || Flags: %d\n", event, x, y, flags);
+			break;
+		case CV_EVENT_RBUTTONDOWN:
+			//printf("CV_EVENT_RBUTTONDOWN || event: %d || x: %d || y: %d || Flags: %d\n", event, x, y, flags);
+			break;
+		case CV_EVENT_MBUTTONDOWN:
+			//printf("CV_EVENT_MBUTTONDOWN || event: %d || x: %d || y: %d || Flags: %d\n", event, x, y, flags);
+			break;
+		case CV_EVENT_LBUTTONUP:
+			//printf("CV_EVENT_LBUTTONUP || event: %d || x: %d || y: %d || Flags: %d\n", event, x, y, flags);
+			break;
+		case CV_EVENT_RBUTTONUP:
+			//printf("CV_EVENT_RBUTTONUP || event: %d || x: %d || y: %d || Flags: %d\n", event, x, y, flags);
+			break;
+		case CV_EVENT_MBUTTONUP:
+			//printf("CV_EVENT_MBUTTONUP || event: %d || x: %d || y: %d || Flags: %d\n", event, x, y, flags);
+			break;
+		case CV_EVENT_LBUTTONDBLCLK:
+			//printf("CV_EVENT_LBUTTONDBLCLK || event: %d || x: %d || y: %d || Flags: %d\n", event, x, y, flags);
+			break;
+		case CV_EVENT_RBUTTONDBLCLK:
+			//printf("CV_EVENT_RBUTTONDBLCLK || event: %d || x: %d || y: %d || Flags: %d\n", event, x, y, flags);
+			break;
+		case CV_EVENT_MBUTTONDBLCLK:
+			//printf("CV_EVENT_LBUTTONDOWN || event: %d || x: %d || y: %d || Flags: %d\n", event, x, y, flags);
+			break;
+		case CV_EVENT_MOUSEMOVE:
+			//printf("CV_EVENT_MOUSEMOVE || event: %d || x: %d || y: %d || Flags: %d\n", event, x, y, flags);
+			break;
+	}
+}
+
+/*static Scalar randomColor(RNG& rng) {
+ int icolor = (unsigned) rng;
+ return Scalar(icolor & 255, (icolor >> 8) & 255, (icolor >> 16) & 255);
+ }*/
+
+int main(int argc, char** argv) {
+
+	// Obtien los argumentos por medio de linea de comandos.
+	IplImage *tpl, *img;
+
+	if (argc >= 3) {
+		const char *imgOriginal = argv[1];
+		img = cvLoadImage(imgOriginal, 1);
+
+		const char *imgTemplate = argv[2];
+		tpl = cvLoadImage(imgTemplate, 1);
+	}
+	else {
+		printf("Faltan parametros.\n");
+		printf("Usar:\n\t%s <Image Original> <Imagen Plantilla>\n", argv[0]);
+		return -1;
+	}
+
+	/*
+	 const char *instWnd = "Instrucciones :: DofusBot :: RoviSoft.net";
+	 cvNamedWindow(instWnd, 1);
+	 //IplImage *imgs = cvLoadImage("fondo-negro.png", CV_LOAD_IMAGE_COLOR);
+	 int mouseParam = 5;
+	 cvSetMouseCallback(instWnd, funcOpenCV.mouseHandler, NULL);
+
+	 printf("mouseParam: %d\n", mouseParam);
+	 cvSetMouseCallback(instWnd, mouseHandler, &mouseParam );
+	 //cvSetMouseCallback(instWnd, mouseHandler, NULL );
+	 printf("mouseParam: %d\n", mouseParam);
+	 */
+
+	// Inicia variables :: OpenCV
+	IplImage *res;
+	IplImage *imgPrueba = cvCloneImage(img);
+	//IplImage *imgInstr = cvLoadImage("fondo-negro.png", CV_LOAD_IMAGE_COLOR);
+
+	//const char *instWnd = "Instrucciones :: DofusBot :: RoviSoft.net";
+	const char *nameWnd = "Encontrar Objetos en Imagenes :: Match Template";
+
+	CvPoint minloc, maxloc;
+	double minval, maxval;
+
+	char c = 0;
+	int mouseX, mouseY;
+	//int mouseParam = 5, cont;
+
+	time_t tiempoInicio, tiempoActual, rawtime, rawtimeIni;
+	int segundos, minSeg, minutos, horasSeg, horas, dias;
+	double dif;
+
+	capturarPantalla imprPantalla;
+	mouseLinux mouse;
+
+	cvNamedWindow(nameWnd, 0);
+	cvResizeWindow(nameWnd, 200, 200);
+	cvWaitKey(0);
+
+	time(&rawtimeIni);
+	time(&rawtime);
+	time(&tiempoInicio);
+	printf("Inicio: %s\n", ctime(&rawtimeIni));
+
+	while (c != 27) {
+		if (tolower(c) == 'p') {
+			cvWaitKey(0);
+		}
+		/*imgPrueba = imprPantalla.capturaOpenCV();
+
+		 printf("Analizado la imagen para obtener el arbol.\n");
+		 CvRect rect = cvRect(0, 0, imgPrueba->width, imgPrueba->height);
+		 res = cvCreateImage(cvSize(rect.width - tpl->width + 1, rect.height - tpl->height + 1), IPL_DEPTH_32F, 1);
+
+		 cvSetImageROI(imgPrueba, rect);
+		 cvMatchTemplate(imgPrueba, tpl, res, CV_TM_SQDIFF);
+		 cvMinMaxLoc(res, &minval, &maxval, &minloc, &maxloc, 0);
+
+		 mouseX = (minloc.x + (tpl->width / 2));
+		 mouseY = (minloc.y + (tpl->height / 2));
+
+		 cvRectangle(imgPrueba, cvPoint(minloc.x, minloc.y), cvPoint(minloc.x + tpl->width, minloc.y + tpl->height), CV_RGB(255, 0, 0), 1, 0, 0);
+		 cvResetImageROI(imgPrueba);
+
+		 printf("Ahora se dara clic automaticamente en los arboles [%d,%d].\n", mouseX, mouseY);
+		 mouse.moveTo(mouseX, mouseY);
+		 mouse.click(1);
+		 mouse.move(30, 20);
+		 mouse.click(1);*/
+
+		time_t rawtime;
+		time(&rawtime);
+		printf("--------------------\n");
+		printf("Inicio: %s", ctime(&rawtimeIni));
+		printf("Actual: %s", ctime(&rawtime));
+
+		time(&tiempoActual);
+		dif = difftime(tiempoActual, tiempoInicio);
+		//dif = 270495.0;
+
+		segundos = (int) dif % 60;
+
+		minSeg = ((int) dif - segundos) % (60 * 60);
+		minutos = (((int) dif - segundos) % (60 * 60)) / 60;
+
+		horasSeg = ((int) dif - segundos - minSeg) % (60 * 60 * 24);
+		horas = ((int) dif - segundos - minSeg) % (60 * 60 * 24) / (60 * 60);
+
+		dias = ((int) dif - segundos - minSeg - horasSeg) / (60 * 60 * 24);
+
+		//printf("Segundos: %.2lf\n", dif);
+		printf("Dias/Hora: %02d %02d:%02d:%02d\n", dias, horas, minutos, segundos);
+
+		printf("\n\n");
+		c = cvWaitKey(1000);
+
+		/*cvShowImage(nameWnd, imgPrueba);
+		 cvResizeWindow(nameWnd, imgPrueba->width - 50, imgPrueba->height - 1);
+		 c = cvWaitKey(2000);
+
+		 cvResizeWindow(nameWnd, 200, 200);
+		 c = cvWaitKey(16000);*/
+	}
+
+	//cvWaitKey(0);
+	cvDestroyAllWindows();
+	printf("FINALIZO EL PROGRAMA.\n");
+	return 0;
+}
