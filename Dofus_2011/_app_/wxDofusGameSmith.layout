@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="BienvenidosPanel.cpp" open="0" top="0" tabpos="0">
+		<Cursor position="231" topLine="10" />
+	</File>
+	<File name="BienvenidosPanel.h" open="0" top="0" tabpos="0">
+		<Cursor position="495" topLine="5" />
+	</File>
+	<File name="Paso01Panel.cpp" open="0" top="0" tabpos="6">
+		<Cursor position="18251" topLine="404" />
+	</File>
+	<File name="Paso01Panel.h" open="0" top="0" tabpos="5">
+		<Cursor position="978" topLine="80" />
+	</File>
+	<File name="Paso02Panel.cpp" open="0" top="0" tabpos="5">
+		<Cursor position="550" topLine="8" />
+	</File>
+	<File name="Paso02Panel.h" open="0" top="0" tabpos="4">
+		<Cursor position="464" topLine="5" />
+	</File>
+	<File name="wxDofusGameSmithApp.cpp" open="1" top="1" tabpos="0">
+		<Cursor position="492" topLine="0" />
+	</File>
+	<File name="wxDofusGameSmithApp.h" open="0" top="0" tabpos="1">
+		<Cursor position="416" topLine="0" />
+	</File>
+	<File name="wxDofusGameSmithMain.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="7121" topLine="148" />
+	</File>
+	<File name="wxDofusGameSmithMain.h" open="0" top="0" tabpos="3">
+		<Cursor position="833" topLine="35" />
+	</File>
+	<File name="wx_Src/dofusMenu.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="46" topLine="0" />
+	</File>
+	<File name="wx_Src/dofusMenu.h" open="0" top="0" tabpos="0">
+		<Cursor position="2471" topLine="69" />
+	</File>
+	<File name="wxsmith/wxDofusGameSmithframe.wxs" open="0" top="0" tabpos="0">
+		<Cursor position="1610" topLine="30" />
+	</File>
+</CodeBlocks_layout_file>
